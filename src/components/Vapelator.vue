@@ -1,5 +1,7 @@
 <template>
 <div class="container">
+    <h1>Vapelator</h1>
+    <h4>Kalkulaator e-sigareti vedeliku tegemiseks</h4>
     <form class="mt-4">
     <div class="form-group">
         <div class="input-group">
@@ -54,7 +56,7 @@
         </div>
     </form>
     <div>
-        <h3>{{formula.batch}} ml koguse valmistamiseks läheb vaja {{formula.nicotine}} ml nikotiini, maitset läheb {{formula.finalFlavour}} ml ja baasvedelikku läheb {{formula.result}} ml.</h3>
+        <h4>{{formula.batch}} ml koguse valmistamiseks läheb vaja {{formula.nicotine}} ml nikotiini, maitset läheb {{formula.finalFlavour}} ml ja baasvedelikku läheb {{formula.result}} ml.</h4>
     </div>
 </div>
 </template>
