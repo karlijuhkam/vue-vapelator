@@ -2,10 +2,11 @@
 <div class="container">
     <form class="mt-4">
     <div class="form-group">
-        <h4>Sisesta siia kogus palju sa tahad vedelikku valmistada</h4>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Kogus:</span>
+                <b-btn class="btn-info" v-b-popover.hover="'Sisesta siia kogus palju sa tahad vedelikku valmistada.'">?</b-btn>
+
             </div>
             <input name="batch" type="number" class="form-control" min="0" v-model="formula.batch" v-bind="calculate()">
             <div class="input-group-append">
@@ -18,6 +19,7 @@
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Nikotiini kangus:</span>
+                <b-btn class="btn-info" v-b-popover.hover="'Sisesta siia kui kange on nikotiin millest vedelikku valmistad.'">?</b-btn>
             </div>
             <input name="strength" type="number" class="form-control" min="0"  v-model="formula.strength" v-bind="calculate()" >
             <div class="input-group-append">
@@ -30,6 +32,7 @@
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Tahetud koguse kangus:</span>
+                <b-btn class="btn-info" v-b-popover.hover="'Sisesta siia kui kange sa tahad, et vedelik lõpuks oleks.'">?</b-btn>
                 </div>
             <input name="target" type="number" class="form-control" min="0"  v-model="formula.target" v-bind="calculate()" >
             <div class="input-group-append">
@@ -41,6 +44,7 @@
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Maitse protsent:</span>
+                    <b-btn class="btn-info" v-b-popover.hover="'Sisesta siia kui suur on osakaal maitsel lõppvedelikus (tavaliselt kuskil vahemikus 5-15%).'">?</b-btn>
                 </div>
                 <input name="flavour" type="number" class="form-control" min="0" v-model="formula.flavour" v-bind="calculate()" >
                 <div class="input-group-append">
@@ -48,9 +52,8 @@
                 </div>
             </div>
         </div>
-    <button v-if="!init" class="btn btn-primary" v-bind="calculate()" >Arvuta</button>
     </form>
-    <div v-if="init">
+    <div>
         <h3>{{formula.batch}} ml koguse valmistamiseks läheb vaja {{formula.nicotine}} ml nikotiini, maitset läheb {{formula.finalFlavour}} ml ja baasvedelikku läheb {{formula.result}} ml.</h3>
     </div>
 </div>
@@ -59,7 +62,8 @@
 export default {
   data() {
     return {
-      formula: {batch: 10, strength: 20, target: 6, flavour: 10}
+      formula: {batch: 10, strength: 20, target: 6, flavour: 10},
+      init:''
     };
   },
 
